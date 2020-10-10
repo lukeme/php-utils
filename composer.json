@@ -1,0 +1,22 @@
+{
+    "name": "luke/utils",
+    "description": "php utils",
+    "type": "library",
+    "authors": [
+        {
+            "name": "lukeme",
+            "email": "luke-me@qq.com"
+        }
+    ],
+	"require": {
+		"php": ">=7.0.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Luke\\Utils\\": "src/"
+		},
+		"files": [
+			"src/functions.php"
+		]
+	}
+}
