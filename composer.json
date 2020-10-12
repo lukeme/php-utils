@@ -1,6 +1,7 @@
 {
     "name": "lukeme/utils",
     "description": "php utils",
+	"license": "Apache-2.0",
     "type": "library",
     "authors": [
         {
