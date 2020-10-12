@@ -1,5 +1,5 @@
 <?php
-namespace Luke\Utils;
+namespace Lukeme\Utils;
 use \PDO;
 
 class Db
