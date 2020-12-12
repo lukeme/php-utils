@@ -8,7 +8,11 @@ class Db
 
     function __construct(array $conf)
     {
-        $dsn = sprintf('%s:host=%s;port=%s;dbname=%s;', $conf['driver'], $conf['host'], $conf['port'], $conf['name']);
+		if('sqlsrv'==$conf['driver']){
+            $dsn = sprintf('sqlsrv:Server=%s;Database=%s;', $conf['host'], $conf['name']);
+        }else{
+            $dsn = sprintf('%s:host=%s;port=%s;dbname=%s;', $conf['driver'], $conf['host'], $conf['port'], $conf['name']);
+        }
         $this->dbh = new PDO($dsn, $conf['user'], $conf['pass']);
         $this->dbh->query("set names {$conf['char']}");
     }
