@@ -14,6 +14,9 @@ class Db
             $dsn = sprintf('%s:host=%s;port=%s;dbname=%s;', $conf['driver'], $conf['host'], $conf['port'], $conf['name']);
         }
         $this->dbh = new PDO($dsn, $conf['user'], $conf['pass']);
+        if (isset($conf['schema'])) {
+            $this->dbh->exec("SET search_path TO {$conf['schema']}");
+        }
         $this->dbh->query("set names {$conf['char']}");
     }
 
