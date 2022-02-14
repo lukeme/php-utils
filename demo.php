@@ -6,7 +6,7 @@ use Lukeme\Utils\Db;
 
 $conf = [
 	'driver'=>'mysql',
-	'host'=>'localhost',
+	'host'=>'192.168.0.4',
 	'port'=>'3306',
 	'name'=>'test',
 	'user'=>'root',
@@ -16,6 +16,6 @@ $conf = [
 
 $db = new Db($conf);
 
-$row = $db->fetchOne("select * from posts");
+$row = $db->fetchOne("select * from posts limit 1");
 
 dump($row, range(1,3));
