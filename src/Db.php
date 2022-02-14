@@ -8,7 +8,7 @@ class Db
 
     function __construct(array $conf)
     {
-		if('sqlsrv'==$conf['driver']){
+	if('sqlsrv'==$conf['driver']){
             $dsn = sprintf('sqlsrv:Server=%s;Database=%s;', $conf['host'], $conf['name']);
         }else{
             $dsn = sprintf('%s:host=%s;port=%s;dbname=%s;', $conf['driver'], $conf['host'], $conf['port'], $conf['name']);
