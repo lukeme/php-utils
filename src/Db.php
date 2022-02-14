@@ -37,7 +37,7 @@ class Db
         return $this->dbh->exec($sql);
     }
 
-    function getSql($tbl, $data, $new = [])
+    function getSql($tbl, $data, $new = [], $type ='mysql')
     {
         $data = array_merge($data, $new);
         foreach ($data as $k => $v) {
@@ -47,7 +47,13 @@ class Db
             }
             $data[$k] = trim($v);
         }
-        $fields = '"' . implode('","', array_keys($data)) . '"';
+        $delimiter = '`';
+        if($type == 'pgsql'){
+            $delimiter = '"';
+        }
+
+        $fields = $delimiter . implode($delimiter.','.$delimiter, array_keys($data)) . $delimiter;
+//        $fields = '"' . implode('","', array_keys($data)) . '"';
         $values = "'" . implode("','", array_values($data)) . "'";
         return sprintf("insert into %s (%s) values (%s);", $tbl, $fields, $values);
     }

@@ -1,23 +1,24 @@
 {
-    "name": "lukeme/utils",
-    "description": "php utils",
-	"license": "Apache-2.0",
-    "type": "library",
-    "authors": [
-        {
-            "name": "lukeme",
-            "email": "luke-me@qq.com"
-        }
-    ],
-	"require": {
-		"php": ">=7.0.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"Lukeme\\Utils\\": "src/"
-		},
-		"files": [
-			"src/functions.php"
-		]
-	}
+  "name": "lukeme/utils",
+  "description": "php utils",
+  "license": "Apache-2.0",
+  "type": "library",
+  "authors": [
+    {
+      "name": "lukeme",
+      "email": "luke-me@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lukeme\\Utils\\": "src/"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  }
 }
