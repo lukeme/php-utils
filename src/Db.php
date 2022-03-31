@@ -17,6 +17,9 @@ class Db
         if (isset($conf['schema'])) {
             $this->dbh->exec("SET search_path TO {$conf['schema']}");
         }
+	if('mysql'==$conf['driver']){
+            $this->dbh->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+        }
         $this->dbh->query("set names {$conf['char']}");
     }
 
